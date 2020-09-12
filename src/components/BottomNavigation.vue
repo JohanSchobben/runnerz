@@ -1,10 +1,8 @@
 <template>
     <nav>
-        <a href="#">Training</a>
-        <a href="#">Sprint</a>
-        <a href="#">Sprint</a>
-        <a href="#">Sprint</a>
-        <a href="#">Sprint</a>
+        <router-link exact-active-class="active" to="/">Training</router-link>
+        <router-link exact-active-class="active" to="/sprint">Sprint</router-link>
+        <router-link exact-active-class="active" to="/overview">Overview</router-link>
     </nav>
 </template>
 <script lang="ts">
@@ -22,5 +20,10 @@ export default {}
     a { 
         color: #fff;
         text-decoration: none;
+    }
+    .active {
+        background-color: orange;
+        border-radius: 1rem;
+        padding: .5rem;
     }
 </style>
