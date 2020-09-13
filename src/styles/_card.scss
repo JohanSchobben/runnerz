@@ -1,0 +1,7 @@
+@import "vars";
+.card {
+  color: white;
+  background-color: $dark;
+  padding: $card-padding;
+  border-radius: $card-border-radius;
+}
