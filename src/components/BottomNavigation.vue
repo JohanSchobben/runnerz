@@ -9,9 +9,10 @@
 export default {}
 </script>
 <style lang="scss" scoped>
+  @import "../styles/vars";
     nav { 
         flex: 0 0 4.5rem;
-        background: #3e3e3f;
+        background: $dark;
         color: #fff;
         justify-content: space-evenly;
         display: flex;
