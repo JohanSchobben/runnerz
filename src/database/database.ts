@@ -1,6 +1,5 @@
 import { openDB, IDBPDatabase } from "idb";
 import { DB_NAME, DB_VERSION, SPRINTS_STORE } from "./const";
-import store from "../store";
 
 
 let db: IDBPDatabase<unknown>;
@@ -19,15 +18,28 @@ export async function init(): Promise<void> {
 export async function getAll(storeNames: string) : Promise<any[]> {
     const transaction = db.transaction(storeNames, "readwrite");
     const store = transaction.objectStore(storeNames);
-    return store.getAll();
+    return await store.getAll();
 }
 
-export async function store(storNames: string, item) {
-    
+export async function store<T>(storNames: string, item: T) {
+    const transaction = db.transaction(storNames, "readwrite");
+    const store = transaction.objectStore(storNames);
+    await store.add(item);
+    return await transaction.done;
 }
 
-export async function put(){
+export async function put<T>(storNames: string, item: T){
+    const transaction = db.transaction(storNames, "readwrite");
+    const store = transaction.objectStore(storNames);
+    await store.add(item);
+    return await transaction.done;
+}
 
+export async function remove(storNames: string, key) {
+    const transaction = db.transaction(storNames, "readwrite");
+    const store = transaction.objectStore(storNames);
+    await store.delete(key);
+    return await transaction.done;
 }
 
 init();
