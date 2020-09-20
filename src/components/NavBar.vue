@@ -1,14 +1,16 @@
 <template>
     <header>
-        <MenuIcon/>
+        <Sidebar/>
         <div></div>
     </header>
 </template>
 <script lang="ts">
 import MenuIcon from './icons/MenuIcon.vue';
+import Sidebar from './Sidebar.vue';
 export default {
     components: {
-        MenuIcon
+        MenuIcon,
+        Sidebar
     }
 }
 </script>
